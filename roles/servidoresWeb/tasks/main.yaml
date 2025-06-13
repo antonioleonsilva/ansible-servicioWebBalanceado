@@ -1,0 +1,27 @@
+---
+- name: Actualizar los repositorios
+  apt:
+    update_cache: yes
+
+- name: Instalar Apache
+  apt:
+    name: apache2
+    state: present
+
+- name: Habilitar y arrancar Apache
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Copiar index.html a los servidore
+  copy:
+    src: index.html
+    dest: /var/www/html/
+
+- name: Copiar css a los servidores
+  copy:
+    src: styles.css
+    dest: /var/www/html/
+
+

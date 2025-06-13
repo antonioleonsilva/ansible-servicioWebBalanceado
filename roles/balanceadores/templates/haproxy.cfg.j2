@@ -1,0 +1,21 @@
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client  50000ms
+    timeout server  50000ms
+
+frontend http_front
+    bind *:80
+    default_backend apache_servers
+
+backend apache_servers
+    balance roundrobin
+    option httpchk
+{% for host in groups['servidores'] %}
+    server {{ host }} {{ hostvars[host]['ansible_host'] }}:80 check
+{% endfor %}
+

@@ -1,0 +1,10 @@
+---
+- name: Redirigir tráfico HTTP entrante al balanceador
+  iptables:
+    table: nat
+    chain: PREROUTING
+    protocol: tcp
+    destination_port: 80
+    jump: DNAT
+    to_destination: "{{ hostvars['haproxy'].ansible_host }}:80"
+

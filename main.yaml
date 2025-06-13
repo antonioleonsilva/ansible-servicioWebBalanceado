@@ -1,0 +1,16 @@
+---
+- name: Configurar servidores web
+  hosts: servidores
+  roles:
+    - servidoresWeb
+
+- name: Configurar balanceador HAProxy
+  hosts: balanceadores
+  roles:
+    - balanceadores
+
+- name: Configurar NAT en el router
+  hosts: routers
+  roles:
+    - routers
+
