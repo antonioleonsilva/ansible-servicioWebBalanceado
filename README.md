@@ -1,4 +1,4 @@
-# Servicio Web con Balanceador de Carga 
+# Servicio Web con Balanceador de Carga - Ansible
 Despliegue automatizado con Ansible de un servicio web con balanceador de carga (HAProxy alojado en Docker) y múltples nodos.
 
 ## Tabla de Contenidos
@@ -28,7 +28,10 @@ Este proyecto automatiza el despliegue de un servicio web con múltiples nodos s
 
 ## Adaptación
 - Modifica el archivo `intentory/hosts.ini` para definir los nodos backend (grupo servidores) y el nodo balanceador (grupo balanceadores).
-- El despliegue está diseñado para que solo sea necesario indicar los nodos clientes en el fichero de inventario. No es necesario modificar ningún otro fichero para que el despliegue diseñado funcione, pero sientete con libertad de modificarlo según tus necesidades. 
+- El despliegue está diseñado para que solo sea necesario indicar los nodos clientes en el fichero de inventario. No es necesario modificar ningún otro fichero para que el despliegue diseñado funcione, pero sientete con libertad de modificarlo según tus necesidades.
+
+> ⚠️ **Advertencia:** Este proyecto contiene la figura de un nodo router (servidor Ubuntu) que en el diseño original reenviaba los puertos desde una red externa hacia la topología permtiendo así que el servicio web sea accesible desde redes ajenas a la que pertenecian los nodos participantes al despliegue. Si en tu topoligía no dispones de esta figura **y por lo tanto, por defecto, este despliegue solo funcionará en tu red local**, no debes ejeuctar la tarea que crearía la regla de reenvío de puertos en el nodo router. Para ello, en el fichero principal de tareas [main.yaml](main.yaml), elimina la tarea llamada  * Configurar NAT en el router*.
+
 
 ## Instalación
 
