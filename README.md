@@ -43,6 +43,9 @@ git clone https://github.com/antonioleonsilva/ansible-servicioWebBalanceado.git
 cd ansible-servicioWebBalanceado
 ansible-playbook -i inventory/hosts.ini main.yaml
 
+```
+
 Para visualizar el sitio web introduzca en un navegador la dirección IP del servidor Docker que aloja al contenedor con el balanceador de carga.
+
 ```bash
-http://ip
+http://http://IP_DEL_SERVIDOR
