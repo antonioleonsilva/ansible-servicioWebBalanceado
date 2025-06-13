@@ -28,6 +28,7 @@ Este proyecto automatiza el despliegue de un servicio web con múltiples nodos s
 
 ## Adaptación
 - Modifica el archivo [intentory/hosts.ini](inventory/hosts.ini) para definir los nodos backend (grupo servidores) y el nodo balanceador (grupo balanceadores).
+- En el directorio *files* del rol *servidoresWeb* [roles/servidoresWeb/files](roles/servidoresWeb/files)se encuentran los ficheros del sitio web que se mostrará, modifiquelos a según sus necesidades o reemplacelos por los suyos. 
 - El despliegue está diseñado para que solo sea necesario indicar los nodos clientes en el fichero de inventario. No es necesario modificar ningún otro fichero para que el despliegue diseñado funcione, pero sientete con libertad de modificarlo según tus necesidades.
 
 > ⚠️ **Advertencia:** Este proyecto contiene la figura de un nodo router (Ubuntu Server) que en el diseño original reenviaba los puertos desde una red externa hacia la topología permtiendo así que el servicio web sea accesible desde redes ajenas a la que pertenecian los nodos participantes al despliegue. Si en tu topoligía no dispones de esta figura **y por lo tanto, por defecto, este despliegue solo funcionará en tu red local**, no debes ejeuctar la tarea que crearía la regla de reenvío de puertos en el nodo router. Para ello, en el fichero principal de tareas [main.yaml](main.yaml), elimina la tarea llamada  *Configurar NAT en el router*.
