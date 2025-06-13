@@ -48,4 +48,4 @@ ansible-playbook -i inventory/hosts.ini main.yaml
 Para visualizar el sitio web introduzca en un navegador la dirección IP del servidor Docker que aloja al contenedor con el balanceador de carga.
 
 ```bash
-http://http://IP_DEL_SERVIDOR
+http://IP_DEL_SERVIDOR
